@@ -1,0 +1,14 @@
+{
+	"port": 8080,
+	"bodyLimit": "100kb",
+	"corsHeaders": ["Link"],
+	"sentryDSN": "http://a9852c792da841d4a39a87d38cd997d6:71d262b407614f6ab36f75e9bc09c3d7@sentry.digitalya.ro/55",
+	"secretKey": "t5ztwtke*70jf3QE*yaJzkvUohcK2w",
+	"appUrl": "https://juvo.digitalya.ro",
+	"apiUrl": "https://juvo-api.digitalya.ro/api",
+	"dateWithTimezone": "YYYY-MM-DD HH:mm:ssZZ",
+	"pagination": {
+		"minLimit": 10,
+		"maxLimit": 50
+	}
+}

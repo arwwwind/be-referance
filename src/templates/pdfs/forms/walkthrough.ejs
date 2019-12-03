@@ -1,0 +1,427 @@
+<html>
+
+<head>
+    <title>Parcel Sandbox</title>
+    <meta charset="UTF-8"/>
+</head>
+
+<style>
+    html {
+        line-height: 1.35;
+        font-size: 14px;
+        font-family: sans-serif;
+    }
+
+    .p-t-0 {
+        padding-top: 0 !important;
+    }
+
+    .p-b-0 {
+        padding-bottom: 0 !important;
+    }
+
+    .header {
+        height: 1in;
+    }
+
+    .center {
+        display: table;
+        height: 100%;
+        width: 100%;
+    }
+
+    .center > span {
+        display: table-cell;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    .container {
+        width: 93%;
+        margin: 10px auto 0 auto;
+    }
+
+    .left {
+        border: 1px solid black;
+        width: 50%;
+        float: left;
+        box-sizing: border-box;
+        height: 5.5in;
+    }
+
+    .right {
+        border: 1px solid black;
+        border-left: 0;
+        width: 50%;
+        float: right;
+        box-sizing: border-box;
+        height: 5.5in;
+    }
+
+    .head {
+        text-align: center;
+        border-bottom: 1px solid black;
+    }
+
+    .subhead {
+        text-align: center;
+        border-bottom: 1px solid black;
+        border-top: 1px solid black;
+    }
+
+    .item {
+        padding: 10px 10px;
+        height: 16px;
+    }
+
+    .last {
+        margin-bottom: 15px;
+    }
+
+    .title {
+        float: left;
+        margin-right: 10px;
+    }
+
+    .represented {
+        width: auto;
+    }
+
+    .underline {
+        float: left;
+        border-bottom: 1px solid black;
+        width: 50%;
+        text-align: center;
+    }
+
+    .checkbox {
+        display: table-cell;
+        padding-right: 10px;
+    }
+
+    .box {
+        width: 12px;
+        height: 12px;
+        border: 2px solid white;
+        box-sizing: border-box;
+        display: inline-block;
+
+        box-shadow: 0 0 0 1px black;
+    }
+
+    .box-checked {
+        background: black;
+    }
+
+    .dotted-line {
+        width: 95%;
+        border-top: 1px dashed black;
+        margin: 0 auto;
+    }
+
+    .long-description {
+        border: 1px solid black;
+        padding: 5px;
+        margin-top: 5px;
+    }
+
+    /* --------------------------- */
+
+    .checklist {
+        height: 1.15in;
+        margin-top: 0;
+    }
+
+    .checklist .left {
+        padding-top: 10px;
+        width: 33.33%;
+        border: 1px solid black;
+        height: 1.15in;
+        float: left;
+        box-sizing: border-box;
+    }
+
+    .checklist .middle {
+        padding-top: 10px;
+        width: 33.33%;
+        border: 1px solid black;
+        border-left: 0;
+        height: 1.15in;
+        float: left;
+        box-sizing: border-box;
+    }
+
+    .checklist .right {
+        width: 33.33%;
+        border: 1px solid black;
+        border-left: 0;
+        height: 1.15in;
+        float: left;
+        box-sizing: border-box;
+    }
+
+    .checklist .item {
+        padding: 2px 10px;
+        height: 14px;
+        font-size: 12px;
+    }
+
+    .checklist .box {
+        width: 9px;
+        height: 9px;
+    }
+</style>
+
+<body>
+<div class="header">
+    <div class="center">
+        <span><img src="https://juvo.digitalya.ro/assets/logo.png" alt="juvo" style="width: 100px; height: 40px;"/></span>
+    </div>
+</div>
+
+<div class="container">
+    <div class="left">
+        <div class="head">
+            <span>INJURED WORKER INFORMATION</span>
+        </div>
+
+        <div class="injured-content">
+
+            <div class="item">
+                <div class="title">Name:</div>
+                <div class="underline"><%= data.injuredWorkerInformation.name %></div>
+            </div>
+
+            <div class="item">
+                <div class="title">Phone:</div>
+                <div class="underline"><%= data.injuredWorkerInformation.phone %></div>
+            </div>
+
+            <div class="item p-b-0">
+                <div class="title represented">Represented?</div>
+                <div class="checkbox">
+                    <div class="box <%= !data.injuredWorkerInformation.represented ? 'box-checked' : '' %>"></div>
+                    <span>No</span>
+                </div>
+                <div class="checkbox">
+                    <div class="box <%= data.injuredWorkerInformation.represented ? 'box-checked' : '' %>"></div>
+                    <span>Yes</span>
+                </div>
+            </div>
+
+            <div class="item p-t-0">
+                <div class="title represented">If yes, list A/a name & Phone Number:</div>
+                <br/><br/>
+                <div class="underline last"><%= data.injuredWorkerInformation.representedByName %> <%= data.injuredWorkerInformation.representedByPhone !== '-' ? data.injuredWorkerInformation.representedByPhone : '' %></div>
+            </div>
+            <br/><br/><br/>
+            <div class="subhead">
+                <span>CASE DETAILS</span>
+            </div>
+
+            <div class="item">
+                <div class="title represented">Settlement Type:</div>
+                <div class="checkbox">
+                    <div class="box <%= data.caseDetails.settlementType === 'STIP' ? 'box-checked' : '' %>"></div>
+                    <span>Stip</span>
+                </div>
+                <div class="checkbox">
+                    <div class="box <%= data.caseDetails.settlementType === 'C&R' ? 'box-checked' : '' %>"></div>
+                    <span>C&R</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="title">ADJ(s) (If applicable):</div>
+            <div class="underline"><%= data.caseDetails.adj %></div>
+        </div>
+
+        <div class="item">
+            <div class="title">DOI(s):</div>
+            <div class="underline" style="width: 49%; margin-right: 10px;"><%= data.caseDetails.doi %></div>
+            <div class="checkbox">
+                <span>EDD Lien:</span>
+                <div class="box <%= data.caseDetails.eddLien ? 'box-checked' : '' %>"></div>
+            </div>
+        </div>
+
+        <div class="dotted-line"></div>
+
+        <div class="item">
+            <div class="title" style="margin-right: 2px;">TD Paid: $</div>
+            <div class="underline"><%= data.caseDetails.medicalBillsPaid %></div>
+        </div>
+
+        <div class="item">
+            <div class="title">PD Percentage & Value:</div>
+            <div class="underline" style=" width: 45%;"><%= data.caseDetails.pdPercent ? `${data.caseDetails.pdPercent}%` : '' %> / <%= data.caseDetails.pdValue %></div>
+        </div>
+
+        <div class="item">
+            <div class="title">Settlement Amount (C&R Only):</div>
+            <div class="underline" style=" width: 25%;"><%= data.caseDetails.MSAAmount %></div>
+        </div>
+
+        <div class="item">
+            <div class="title">Leaving Balance: (C&R Only):</div>
+            <div class="underline" style=" width: 30%;"><%= data.caseDetails.leavingBalance %></div>
+        </div>
+
+        <div class="item">
+            <div class="title">PD Paid (C&R Only):</div>
+            <div class="underline" style=" width: 40%;"><%= data.caseDetails.pdPaid %></div>
+        </div>
+        <br>
+    </div>
+    <div class="right">
+        <div class="head">
+            <span>MEDICAL INFORMATION</span>
+        </div>
+
+        <div class="medical-content">
+            <div class="item" style="height: auto;">
+                <div class="title">Injury Details (history/dx):</div>
+                <br/>
+                <div class="long-description" style="font-size: 13px;height: 1.59in;">
+                    <%= data.medicalInformation.injuryDetails %>
+                </div>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="title represented">Report type:</div>
+            <div class="checkbox" style="padding-right: 5px;">
+                <div class="box"></div>
+                <span style="font-size: 12px;">PTP</span>
+            </div>
+            <div class="checkbox" style="padding-right: 5px;">
+                <div class="box"></div>
+                <span style="font-size: 12px;">QME</span>
+            </div>
+            <div class="checkbox" style="padding-right: 5px;">
+                <div class="box"></div>
+                <span style="font-size: 12px;">AME</span>
+            </div>
+            <div class="checkbox" style="padding-right: 5px;">
+                <div class="box"></div>
+                <span style="font-size: 12px;">Other/NA</span>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="title">WPI:</div>
+            <div class="underline"><%= data.medicalInformation.wpi %></div>
+        </div>
+
+        <div class="item">
+            <div class="title">Apportionment:</div>
+            <div class="underline"><%= data.medicalInformation.apportionment %></div>
+        </div>
+
+        <div class="medical-content">
+            <div class="item" style="height: auto;">
+                <div class="title">Future Medical:</div>
+                <br/>
+                <div style="margin-top:2px; font-size: 13px;">
+                    <%= data.medicalInformation.futureMedical %>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div style="text-align:center;">DOCUMENT CHECKLIST</div>
+<div class="container checklist">
+    <div class="left">
+        <div class="item">
+            <div class="checkbox">
+                <div class="box <%= data.checklist.settlementDocs ? 'box-checked' : '' %>"></div>
+                <span>Settlement Docs</span>
+            </div>
+        </div>
+        <div class="item">
+            <div class="checkbox">
+                <div class="box <%= data.checklist.medicalReport ? 'box-checked' : '' %>"></div>
+                <span>Medical Report</span>
+            </div>
+        </div>
+        <div class="item">
+            <div class="checkbox">
+                <div class="box <%= data.checklist.QMEWaiver ? 'box-checked' : '' %>"></div>
+                <span>QME Waiver (if applicable)</span>
+            </div>
+        </div>
+        <div class="item">
+            <div class="checkbox">
+                <div class="box <%= data.checklist.benefitNotice ? 'box-checked' : '' %>"></div>
+                <span>Benefit Notice w/pQME info</span>
+            </div>
+        </div>
+    </div>
+    <div class="middle">
+        <div class="item">
+            <div class="checkbox">
+                <div class="box <%= data.checklist.benefitPrintout ? 'box-checked' : '' %>"></div>
+                <span>Benefit Printout</span>
+            </div>
+        </div>
+        <div class="item" style="margin-left: 15px;">
+            <div class="checkbox" style="padding-right: 5px;">
+                <div class="box <%= data.checklist.TDBenefitPrintout ? 'box-checked' : '' %>"></div>
+                <span style="font-size: 12px;">TD</span>
+            </div>
+            <div class="checkbox" style="padding-right: 5px;">
+                <div class="box <%= data.checklist.PDBenefitPrintout ? 'box-checked' : '' %>"></div>
+                <span style="font-size: 12px;">PD</span>
+            </div>
+            <div class="checkbox" style="padding-right: 5px;">
+                <div class="box <%= data.checklist.medicalBenefitPrintout ? 'box-checked' : '' %>"></div>
+                <span style="font-size: 12px;">Med</span>
+            </div>
+        </div>
+        <div class="item">
+            <div class="checkbox">
+                <div class="box <%= data.checklist.settlementDocs ? 'box-checked' : '' %>"></div>
+                <span>Wage Statement</span>
+            </div>
+        </div>
+        <div class="item">
+            <div class="checkbox">
+                <div class="box <%= data.checklist.docOfferOfWork ? 'box-checked' : '' %>"></div>
+                <span>Offer of work (If applicable)</span>
+            </div>
+        </div>
+    </div>
+    <div class="right">
+        <div style="text-align: center;">Notes to Hearing Rep</div>
+        <div style="padding: 4px; font-size: 12px;">
+            <%= data.checklist.notesToHearingRep %>
+        </div>
+    </div>
+</div>
+<div style="text-align:center;">NOTES</div>
+<div class="container checklist">
+    <div class="left" style="width: 100%; padding: 10px; font-size: 13px;">
+
+    </div>
+
+</div>
+<div class="item" style="width: 93%; margin: 20px auto 0 auto; font-weight: bold;">
+    <div class="title">Referral Date:</div>
+    <div class="underline" style="width: 25%"><%= moment(data.referralDate).format('L'); %></div>
+</div>
+<div style="width: 93%; margin: 0 auto;  text-align: center; font-size: 14px; margin-top:20px;">
+    <div style="font-weight: bold; text-decoration: underline;">TRY EVERYTHING POSSIBLE BEFORE TAKING A SUSPENSION!!!
+    </div>
+    <div style="font-size: 12px;">FOR ASSISTANCE: CALL JASON’S CELL 949-689-0177 IF THERE IS NO ANSWER CALL CUSTOMER
+        SERVICE
+    </div>
+    <div style="font-size: 12px;">LINE @ 949-572-1906 EXT 102 TO SPEAK WITH ALEXANDRIA</div>
+</div>
+<div style="width: 98%; text-align: right; margin-top:20px;"><!--Ver. 11/2015--></div>
+
+
+</body>
+
+</html>

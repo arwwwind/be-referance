@@ -1,0 +1,13 @@
+{
+  "defaultFrom": "Juvo Admin <admin@juvo.com>",
+  "mailtrap": {
+    "host": "smtp.mailtrap.io",
+    "port": 2525,
+    "user": "957ace4dbe8e51",
+    "pass": "21cec62e989396"
+  },
+  "mailgun": {
+    "key": "key-479fe3ff4a95fad1ac784c8098522b10",
+    "domain": "digitalya.co"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "user": {
+    "table": "Users",
+    "model": "User"
+  },
+  "judge": {
+    "table": "Judges",
+    "model": "Judge"
+  },
+  "contact": {
+    "table": "ContactProfiles",
+    "model": "ContactProfile"
+  },
+  "venue": {
+    "table": "Venues",
+    "model": "Venue"
+  },
+  "organisation": {
+    "table": "Organisations",
+    "model": "Organisation"
+  },
+  "case": {
+    "table": "Cases",
+    "model": "Case"
+  }
+}

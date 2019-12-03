@@ -1,0 +1,30 @@
+{
+  "adjusterUpdatedIn": 10,
+  "lastTouchInterval": {
+    "documentPreparation": 10,
+    "eddLien": 10,
+    "injuredWorkerInformation": 10,
+    "injuredWorkerOutreach": 10,
+    "lienService": 10,
+    "walkthrough": 10,
+    "misc": 10
+  },
+  "updateIntervalsMonths": {
+    "documentPreparation": 1,
+    "eddLien": 1,
+    "injuredWorkerInformation": 1,
+    "injuredWorkerOutreach": 1,
+    "lienService": 1,
+    "walkthrough": 1,
+    "misc": 1
+  },
+  "serviceTypesLabels": {
+    "walkthrough": "Walkthrough",
+    "documentPreparation": "Document Preparation",
+    "injuredWorkerInformation": "IWIM",
+    "injuredWorkerOutreach": "IWO",
+    "lienService": "Lien Service",
+    "eddLien": "EDD Lien",
+    "misc": "Misc"
+  }
+}
